@@ -428,7 +428,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 			\node[anchor=west, font=\scriptsize]      at (359.2:\radius+1.5) [yshift=-0.3cm] {\TagsLLM{} (\TagsLLMPct{}\%)};
 			
 		\end{tikzpicture}
-		\caption{Distribution of tag assignments by source. EPUB embedded metadata and ISBN subject lookups collectively account for $\TagsEPUBMetaPct{}+\TagsISBNPct{}=\the\numexpr\TagsEPUBMetaPct+\TagsISBNPct\relax\%$ of all tag assignments, with ArXiv categories contributing \TagsArXivPct{}\%. Filesystem path heuristics and LLM-distilled labels provide supplementary coverage for documents lacking structured metadata.}
+		\caption{Distribution of tag assignments by source. EPUB embedded metadata and ISBN subject lookups collectively account for the number of all tag assignments, with ArXiv categories contributing \TagsArXivPct{}\%. Filesystem path heuristics and LLM-distilled labels provide supplementary coverage for documents lacking structured metadata.}
 		\label{fig:tag_source_dist}
 	\end{figure}
 	
@@ -582,7 +582,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.9\linewidth]{output_full/graphs/final_report/09_tag_long_tail.png}
+		\includegraphics[width=0.9\linewidth]{graphs/final_report/09_tag_long_tail.png}
 		\caption{Long-tail distribution of tags by example count. Over 3,000 tags have only a single training example, driving the Micro/Macro-F1 gap.}
 		\label{fig:long_tail}
 	\end{figure}
@@ -618,7 +618,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/29_label_noise_heatmap.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/29_label_noise_heatmap.png}
 		\caption{Label noise visualization for a sample document. Each cell shows the cosine similarity between a passage chunk's embedding and an inherited tag name, confirming that document-level tags are a poor proxy for passage-level content.}
 		\label{fig:noise_heatmap}
 	\end{figure}
@@ -635,7 +635,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/24_threshold_sweep_f1.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/24_threshold_sweep_f1.png}
 		\caption{Micro-F1 as a function of decision threshold. The optimal threshold of \EPUBOptThreshold{} yields Micro-F1 of \EPUBOptThresholdF{}, reflecting the noise characteristics of document-inherited labels.}
 		\label{fig:threshold_sweep}
 	\end{figure}
@@ -644,7 +644,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 %	\begin{figure}[htbp]
 %		\centering
-%		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/30_precision_recall_curve.png}
+%		\includegraphics[width=\linewidth]{graphs/final_report_v2/30_precision_recall_curve.png}
 %		\caption{Micro-averaged precision-recall curve. Three operating points are annotated: $t{=}0.15$ (high recall, P=0.47/R=0.55), $t{=}0.375$ (balanced, P=0.71/R=0.37), and $t{=}0.50$ (high precision, P=0.81/R=0.30). The smooth curve confirms well-calibrated probability outputs despite the noisy training labels.}
 %		\label{fig:pr_curve}
 %	\end{figure}
@@ -653,7 +653,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/25_hit_rate_at_k.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/25_hit_rate_at_k.png}
 		\caption{Hit Rate@$K$ for the combined corpus. At $K{=}5$, 84.8\% of passages have at least one correct tag in their top-5 predictions, rising to 90.6\% at $K{=}10$, demonstrating practical utility as a tag recommender despite the modest strict F1.}
 		\label{fig:hit_rate_k}
 	\end{figure}
@@ -663,7 +663,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/27_f1_by_frequency_bucket.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/27_f1_by_frequency_bucket.png}
 		\caption{Average per-tag F1 by frequency bucket. The steep drop from head (\BucketHead{}) to tail (\BucketTail{}) confirms that improving tail-tag performance is the primary avenue for future gains.}
 		\label{fig:f1_bucket}
 	\end{figure}
@@ -676,7 +676,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/22_posweight_vs_standard_f1.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/22_posweight_vs_standard_f1.png}
 		\caption{\texttt{pos\_weight} ablation: Micro-F1 training curves. With \texttt{pos\_weight} (red), F1 remains pinned at the all-zeros baseline ($\sim$\PosWeightMicroF{}) for all 40 epochs. Without \texttt{pos\_weight} (blue), F1 climbs steadily to \MicroF{}, confirming that the architecture learns effectively once the loss function stops amplifying noisy labels.}
 		\label{fig:posweight_f1}
 	\end{figure}
@@ -685,7 +685,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/23_posweight_vs_standard_loss.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/23_posweight_vs_standard_loss.png}
 		\caption{\texttt{pos\_weight} ablation: loss curves (deceptive convergence). Both configurations show decreasing loss, but the \texttt{pos\_weight} run (red) achieves lower absolute loss by learning to predict all-zeros more confidently, a failure mode invisible to loss monitoring alone. Only the unweighted run (blue) translates decreasing loss into improving F1 (cf.\ Fig.~\ref{fig:posweight_f1}).}
 		\label{fig:posweight_loss}
 	\end{figure}
@@ -723,7 +723,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report_v2/28_ablation_bar_chart.png}
+		\includegraphics[width=\linewidth]{graphs/final_report_v2/28_ablation_bar_chart.png}
 		\caption{Extended ablation study. The upper bars show ArXiv-only configurations; the rightmost pair shows the combined corpus with and without \texttt{pos\_weight}. The \PosWeightDelta{}-point gap isolates the effect of \texttt{pos\_weight} under noisy inherited labels.}
 		\label{fig:ablation_updated}
 	\end{figure}
@@ -734,7 +734,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=0.8\linewidth]{output_full/graphs/final_report/08_highest_confidence_tags.png}
+		\includegraphics[width=0.8\linewidth]{graphs/final_report/08_highest_confidence_tags.png}
 		\caption{Tags with highest average prediction confidence. Core sciences show the strongest model certainty.}
 		\label{fig:high_conf}
 	\end{figure}
@@ -745,7 +745,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	% Uncomment and update path once this chart is available.
 	%\begin{figure}[htbp]
 	%	\centering
-	%	\includegraphics[width=\linewidth]{output_full/graphs/final_report/26_probability_distribution_by_domain.png}
+	%	\includegraphics[width=\linewidth]{graphs/final_report/26_probability_distribution_by_domain.png}
 	%	\caption{Output logit probability distributions for a core science tag (algebraic geometry) vs.\ an interdisciplinary tag (ML + Finance). The sharper concentration of the core science distribution explains its higher prediction confidence.}
 	%	\label{fig:logit_distribution}
 	%\end{figure}
@@ -755,7 +755,7 @@ This pipeline reduced the vocabulary from \RawTags{} raw tags to \NumTagsAblatio
 	
 	\begin{figure}[htbp]
 		\centering
-		\includegraphics[width=\linewidth]{output_full/graphs/final_report/25_per_tag_threshold_distribution.png}
+		\includegraphics[width=\linewidth]{graphs/final_report/25_per_tag_threshold_distribution.png}
 		\caption{Distribution of optimized per-tag decision thresholds across \NumTags{} tags. The global fallback (\GlobalThreshold{}, dashed red) sits near the mode, but individual tags range from 0.10 to 0.70+, justifying per-tag optimization.}
 		\label{fig:threshold_dist}
 	\end{figure}
